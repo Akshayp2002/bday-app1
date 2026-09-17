@@ -13,7 +13,12 @@ export default function Home() {
   const birthdayName = "Bestie";
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[var(--cream)] font-sans text-rose-950">
+    <div
+      className="relative min-h-screen overflow-hidden bg-[var(--cream)] font-sans text-rose-950 select-none"
+      onContextMenu={(e) => e.preventDefault()}
+      onDragStart={(e) => e.preventDefault()}
+      style={{ WebkitUserSelect: "none", WebkitTouchCallout: "none" }}
+    >
       <FloatingElements count={20} />
 
       <AnimatePresence mode="wait">
