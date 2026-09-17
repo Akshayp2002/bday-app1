@@ -38,20 +38,20 @@ export default function WishDashboard({ name = "Bestie" }) {
 
   return (
     <motion.main
-      className="relative flex min-h-screen flex-col items-center px-4 py-8 sm:px-6 sm:py-10"
+      className="relative flex min-h-[100dvh] flex-col items-center px-4 py-8 sm:px-6 sm:py-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {/* Decorative frame */}
-      <div className="pointer-events-none fixed inset-4 rounded-[2rem] border-[3px] border-dashed border-rose-300/50 sm:inset-6" />
-      <div className="pointer-events-none fixed inset-5 rounded-[1.7rem] border border-rose-200/30 sm:inset-7" />
+      <div className="pointer-events-none absolute inset-4 rounded-[2rem] border-[3px] border-dashed border-rose-300/50 sm:inset-6" />
+      <div className="pointer-events-none absolute inset-5 rounded-[1.7rem] border border-rose-200/30 sm:inset-7" />
 
       {/* Pressed flower corners */}
-      <Petal className="fixed -left-2 top-10 rotate-45" color="#fda4af" />
-      <Petal className="fixed -right-3 top-24 -rotate-12" color="#c4b5fd" />
-      <Petal className="fixed bottom-16 -left-3 -rotate-45" color="#fb7185" />
-      <Petal className="fixed bottom-24 -right-2 rotate-12" color="#fda4af" />
+      <Petal className="absolute -left-2 top-10 rotate-45" color="#fda4af" />
+      <Petal className="absolute -right-3 top-24 -rotate-12" color="#c4b5fd" />
+      <Petal className="absolute bottom-16 -left-3 -rotate-45" color="#fb7185" />
+      <Petal className="absolute bottom-24 -right-2 rotate-12" color="#fda4af" />
 
       <div className="relative z-10 w-full max-w-2xl">
         {/* Top header note */}
