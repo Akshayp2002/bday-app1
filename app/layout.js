@@ -1,4 +1,4 @@
-import { Poppins, Inter, Caveat } from "next/font/google";
+import { Poppins, Inter, Caveat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -19,8 +19,14 @@ const caveat = Caveat({
   weight: ["400", "500", "600", "700"],
 });
 
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
 export const metadata = {
-  title: "Happy Birthday! 🎀",
+  title: "Happy Birthday! Viba🎀",
   description: "A cute birthday wishing app made with love.",
 };
 
@@ -28,7 +34,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${inter.variable} ${caveat.variable} h-full antialiased`}
+      className={`${poppins.variable} ${inter.variable} ${caveat.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

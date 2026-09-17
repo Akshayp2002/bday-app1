@@ -22,7 +22,6 @@ const DEFAULT_MESSAGES = [
   "I hope every prayer you make finds its way back to you as a blessing, and every dream you carry quietly in your heart becomes a reality someday.",
   "And wherever we end up in life, I'll always be grateful that, for a little while—or maybe for a lifetime—our paths crossed. ❤️",
   "Go live the life you dream about. And please, don't forget that somewhere in this world, there will always be someone genuinely wishing the very best for you. 🫂✨",
-  "𝗛𝗮𝗽𝗽𝘆 𝗯𝗶𝗿𝘁𝗵𝗱𝗮𝘆 𝗺𝘆 𝗳𝗮𝘃𝗼𝘂𝗿𝗶𝘁𝗲 𝗽𝗲𝗿𝘀𝗼𝗻!! 🎀💋",
 ];
 
 function Petal({ className, color }) {
@@ -106,14 +105,14 @@ export default function WishDashboard({ name = "Bestie" }) {
             onClick={() => setShowSurprise(true)}
             src="/images/birthday-girl.jpg"
             alt="Birthday girl"
-            caption="Us being us 💕"
+            caption="My favourite person 🫂"
             rotate={-3}
           />
           <PhotoCard
             onClick={() => setShowSurprise(true)}
             src="/images/memory.jpg"
             alt="Special memory"
-            caption="My favourite person 🫂"
+            caption="Us being us 💕"
             rotate={2}
           />
         </section>
@@ -132,7 +131,7 @@ export default function WishDashboard({ name = "Bestie" }) {
             <Heart className="h-4 w-4 fill-rose-300 text-rose-300" />
           </div>
 
-          <h3 className="mb-4 text-center font-sans text-sm font-bold uppercase tracking-widest text-rose-400">
+          <h3 className="font-hand mb-4 text-center text-2xl font-bold text-rose-500 sm:text-3xl">
             Dear {name},
           </h3>
 
@@ -149,6 +148,16 @@ export default function WishDashboard({ name = "Bestie" }) {
               </motion.p>
             ))}
           </div>
+
+          <motion.p
+            className="font-hand mt-4 text-center text-3xl font-bold leading-snug text-rose-700 sm:text-5xl"
+            animate={{ opacity: [0.92, 1, 0.92] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            Happy Birthday
+            <br />
+            my favourite person! 🎀💋
+          </motion.p>
 
           <p className="font-hand mt-6 text-right text-2xl text-rose-600 sm:text-3xl">
             — Your bestie 💕

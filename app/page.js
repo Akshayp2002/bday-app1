@@ -10,7 +10,7 @@ export default function Home() {
   const [opened, setOpened] = useState(false);
 
   // 👋 Customize the birthday person's name here:
-  const birthdayName = "Bestie";
+  const birthdayName = "Viba";
 
   return (
     <div
