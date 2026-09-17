@@ -121,16 +121,15 @@ export default function BirthdayCake({ className = "" }) {
 
       {/* Middle tier */}
       <div className="relative -mt-1 h-11 w-56 rounded-md bg-gradient-to-b from-violet-200 to-violet-300 shadow-md sm:h-14 sm:w-72">
-        <div className="absolute inset-x-0 top-1/2 flex -translate-y-1/2 justify-around px-3">
-          {["💖", "✨", "🎀", "💖", "✨"].map((e, i) => (
-            <motion.span
+        <div className="absolute inset-x-0 top-1/2 flex -translate-y-1/2 justify-around px-4">
+          {[0, 1, 2, 3, 4].map((i) => (
+            <motion.div
               key={i}
-              className="text-sm sm:text-base"
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
-            >
-              {e}
-            </motion.span>
+              className="h-3 w-3 rounded-full bg-white/80 shadow-sm sm:h-3.5 sm:w-3.5"
+              style={{ backgroundColor: i % 2 === 0 ? "#fda4af" : "#fde047" }}
+              animate={{ y: [0, -3, 0], scale: [1, 1.2, 1] }}
+              transition={{ duration: 1.6, repeat: Infinity, delay: i * 0.2 }}
+            />
           ))}
         </div>
       </div>

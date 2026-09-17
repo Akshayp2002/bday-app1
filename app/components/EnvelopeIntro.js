@@ -85,7 +85,7 @@ function HangingOrnament({ type, color, delay }) {
 export default function EnvelopeIntro({ onOpen }) {
   return (
     <motion.div
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden p-5"
+      className="relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden p-5"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -140,7 +140,7 @@ export default function EnvelopeIntro({ onOpen }) {
         </motion.h1>
 
         <p className="font-hand mt-4 text-center text-2xl text-rose-600 sm:text-3xl">
-          Someone special deserves this card 💕
+          For the one who makes ordinary days feel special ✨
         </p>
 
         <div className="mt-6 flex w-full items-center justify-center gap-3">

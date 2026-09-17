@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Sparkles, Heart, Cake, Stars } from "lucide-react";
 import SurpriseModal from "./SurpriseModal";
 import BirthdayCake from "./BirthdayCake";
+import RisingBalloons from "./RisingBalloons";
 
 const DEFAULT_MESSAGES = [
   "You said I'm one of the favourite people you've ever had in your life, but I want you to know that you are also someone I'm genuinely grateful to have in mine.",
@@ -35,10 +36,16 @@ function Petal({ className, color }) {
 
 export default function WishDashboard({ name = "Bestie" }) {
   const [showSurprise, setShowSurprise] = useState(false);
+  const [showBalloons, setShowBalloons] = useState(false);
+
+  const handlePhotoClick = () => {
+    setShowBalloons(true);
+    setShowSurprise(true);
+  };
 
   return (
     <motion.main
-      className="relative flex min-h-[100dvh] flex-col items-center px-4 py-8 sm:px-6 sm:py-10"
+      className="relative flex min-h-[100dvh] flex-col items-center px-4 py-8 pb-16 sm:px-6 sm:py-10 sm:pb-20"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -50,8 +57,8 @@ export default function WishDashboard({ name = "Bestie" }) {
       {/* Pressed flower corners */}
       <Petal className="absolute -left-2 top-10 rotate-45" color="#fda4af" />
       <Petal className="absolute -right-3 top-24 -rotate-12" color="#c4b5fd" />
-      <Petal className="absolute bottom-16 -left-3 -rotate-45" color="#fb7185" />
-      <Petal className="absolute bottom-24 -right-2 rotate-12" color="#fda4af" />
+      <Petal className="absolute bottom-28 -left-3 -rotate-45" color="#fb7185" />
+      <Petal className="absolute bottom-36 -right-2 rotate-12" color="#fda4af" />
 
       <div className="relative z-10 w-full max-w-2xl">
         {/* Top header note */}
@@ -99,17 +106,19 @@ export default function WishDashboard({ name = "Bestie" }) {
           </p>
         </motion.header>
 
+        <RisingBalloons active={showBalloons} count={10} />
+
         {/* Photos */}
         <section className="mb-8 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-8">
           <PhotoCard
-            onClick={() => setShowSurprise(true)}
+            onClick={handlePhotoClick}
             src="/images/birthday-girl.jpg"
             alt="Birthday girl"
             caption="My favourite person 🫂"
             rotate={-3}
           />
           <PhotoCard
-            onClick={() => setShowSurprise(true)}
+            onClick={handlePhotoClick}
             src="/images/memory.jpg"
             alt="Special memory"
             caption="Us being us 💕"
@@ -165,7 +174,17 @@ export default function WishDashboard({ name = "Bestie" }) {
         </motion.div>
 
         {/* Birthday cake */}
-        <BirthdayCake className="mx-auto mb-4" />
+        <div className="flex w-full justify-center">
+          <motion.button
+            type="button"
+            onClick={() => setShowBalloons((s) => !s)}
+            className="group relative mx-auto mb-4 cursor-pointer focus:outline-none"
+            whileTap={{ scale: 0.97 }}
+          >
+            <BirthdayCake className="transition duration-300 group-hover:scale-[1.02]" />
+          </motion.button>
+          <RisingBalloons active={showBalloons} count={10} />
+        </div>
       </div>
 
       <SurpriseModal open={showSurprise} onClose={() => setShowSurprise(false)} name={name} />

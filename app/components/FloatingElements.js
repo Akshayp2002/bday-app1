@@ -18,15 +18,15 @@ function createItems(count, seed = 1) {
   const rand = seededRandom(seed);
   return Array.from({ length: count }).map((_, i) => ({
     id: i,
-    size: Math.round(16 + rand() * 18),
+    size: Math.round(14 + rand() * 14),
     left: Math.round(rand() * 1000) / 10,
-    delay: Math.round(rand() * 100) / 10,
-    duration: Math.round((10 + rand() * 10) * 10) / 10,
+    delay: Math.round(rand() * 80) / 10,
+    duration: Math.round((12 + rand() * 12) * 10) / 10,
     symbol: elements[i % elements.length],
   }));
 }
 
-export default function FloatingElements({ count = 18 }) {
+export default function FloatingElements({ count = 14 }) {
   const [items, setItems] = useState(() => createItems(count, 1));
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function FloatingElements({ count = 18 }) {
       {items.map((item) => (
         <motion.span
           key={item.id}
-          className="absolute opacity-60"
+          className="absolute opacity-40"
           style={{
             left: `${item.left}%`,
             fontSize: item.size,
@@ -46,8 +46,8 @@ export default function FloatingElements({ count = 18 }) {
           }}
           initial={{ y: 0, opacity: 0, rotate: 0 }}
           animate={{
-            y: [0, -120],
-            opacity: [0, 0.7, 0],
+            y: [0, -140],
+            opacity: [0, 0.45, 0],
             rotate: [0, 20, -10, 0],
           }}
           transition={{

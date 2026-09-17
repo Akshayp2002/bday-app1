@@ -7,35 +7,43 @@ import { X, PartyPopper, Heart } from "lucide-react";
 
 export default function SurpriseModal({ open, onClose, name = "You" }) {
   const launchConfetti = useCallback(() => {
-    const duration = 2800;
+    const duration = 2000;
     const end = Date.now() + duration;
+    let lastShot = 0;
 
     const colors = ["#f472b6", "#c084fc", "#fb7185", "#fde047", "#fbbf24", "#fda4af"];
 
     const frame = () => {
+      const now = Date.now();
+      if (now - lastShot < 140) {
+        if (now < end) requestAnimationFrame(frame);
+        return;
+      }
+      lastShot = now;
+
       confetti({
-        particleCount: 6,
-        spread: 100,
+        particleCount: 5,
+        spread: 90,
         origin: { y: 0.6 },
         colors,
         disableForReducedMotion: true,
       });
       confetti({
-        particleCount: 6,
-        spread: 110,
-        origin: { x: 0.1, y: 0.6 },
+        particleCount: 4,
+        spread: 100,
+        origin: { x: 0.12, y: 0.62 },
         colors,
         disableForReducedMotion: true,
       });
       confetti({
-        particleCount: 6,
-        spread: 110,
-        origin: { x: 0.9, y: 0.6 },
+        particleCount: 4,
+        spread: 100,
+        origin: { x: 0.88, y: 0.62 },
         colors,
         disableForReducedMotion: true,
       });
 
-      if (Date.now() < end) {
+      if (now < end) {
         requestAnimationFrame(frame);
       }
     };
