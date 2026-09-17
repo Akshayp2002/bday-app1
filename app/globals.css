@@ -1,26 +1,167 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fff1f5;
+  --foreground: #831843;
+  --paper: #fffbfb;
+  --cream: #fff8f8;
+  --parchment: #faf6f0;
+  --rose-50: #fff1f5;
+  --rose-100: #ffe4eb;
+  --rose-200: #fecdd3;
+  --rose-300: #fda4af;
+  --rose-400: #fb7185;
+  --rose-500: #f43f5e;
+  --rose-600: #e11d48;
+  --rose-700: #be123c;
+  --rose-800: #9f1239;
+  --rose-900: #881337;
+  --violet-100: #ede9fe;
+  --violet-200: #ddd6fe;
+  --violet-300: #c4b5fd;
+  --violet-400: #a78bfa;
+  --violet-500: #8b5cf6;
+  --gold: #facc15;
+  --chocolate: #5c2b3a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-cream: var(--cream);
+  --color-parchment: var(--parchment);
+  --color-gold: var(--gold);
+  --color-chocolate: var(--chocolate);
+  --font-sans: var(--font-poppins), var(--font-inter), system-ui, sans-serif;
+  --font-hand: var(--font-caveat), "Dancing Script", cursive;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #2a0a15;
+    --foreground: #ffe4eb;
   }
+}
+
+html,
+body {
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--rose-300);
+  color: white;
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+.paper-shadow {
+  box-shadow:
+    0 1px 2px rgba(92, 43, 58, 0.05),
+    0 6px 16px rgba(92, 43, 58, 0.08),
+    0 18px 40px rgba(139, 92, 246, 0.08);
+}
+
+.card-shadow {
+  box-shadow:
+    0 4px 6px rgba(92, 43, 58, 0.06),
+    0 20px 40px rgba(92, 43, 58, 0.1);
+}
+
+.note-tape {
+  position: relative;
+}
+
+.note-tape::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 86px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.6);
+  border-left: 2px dashed rgba(190, 18, 60, 0.14);
+  border-right: 2px dashed rgba(190, 18, 60, 0.14);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(2px);
+}
+
+.torn-paper {
+  clip-path: polygon(
+    0% 2%,
+    4% 0%,
+    10% 1%,
+    18% 0%,
+    26% 2%,
+    34% 1%,
+    42% 0%,
+    50% 2%,
+    58% 0%,
+    66% 1%,
+    74% 0%,
+    82% 2%,
+    90% 1%,
+    96% 0%,
+    100% 2%,
+    100% 98%,
+    96% 100%,
+    90% 99%,
+    82% 100%,
+    74% 98%,
+    66% 100%,
+    58% 99%,
+    50% 100%,
+    42% 98%,
+    34% 100%,
+    26% 99%,
+    18% 100%,
+    10% 98%,
+    4% 100%,
+    0% 99%
+  );
+}
+
+.doodle-border {
+  border: 3px solid var(--rose-300);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+.gold-clip {
+  position: relative;
+}
+
+.gold-clip::after {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  z-index: 20;
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, #fef08a, #facc15, #ca8a04);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  transform: translateX(-50%) rotate(-6deg);
+}
+
+.petal {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
+  opacity: 0.45;
+  filter: blur(1px);
+  pointer-events: none;
 }
