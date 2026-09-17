@@ -25,9 +25,38 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
+const siteUrl = "https://happy-birthday-viba.vercel.app";
+const ogImage = `${siteUrl}/og-preview.png`;
+
 export const metadata = {
-  title: "Happy Birthday! Viba🎀",
-  description: "A cute birthday wishing app made with love.",
+  title: "Happy Birthday Viba! 🎀",
+  description: "A cute birthday wishing app made with love. Tap to open your surprise ✨",
+  metadataBase: new URL(siteUrl),
+  openGraph: {
+    title: "Happy Birthday Viba! 🎀",
+    description: "A little wish made with love. Tap to open your surprise ✨",
+    url: siteUrl,
+    siteName: "Happy Birthday Viba",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: "Happy Birthday Viba preview card",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Happy Birthday Viba! 🎀",
+    description: "A little wish made with love. Tap to open your surprise ✨",
+    images: [ogImage],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
