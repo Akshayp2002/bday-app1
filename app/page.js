@@ -10,11 +10,11 @@ export default function Home() {
   const [opened, setOpened] = useState(false);
 
   // 👋 Customize the birthday person's name here:
-  const birthdayName = "Viba";
+  const birthdayName = "Vibzzz";
 
   return (
     <div
-      className="relative min-h-screen overflow-hidden bg-[var(--cream)] font-sans text-rose-950 select-none"
+      className="relative min-h-[100dvh] overflow-y-auto overflow-x-hidden bg-[var(--cream)] font-sans text-rose-950 select-none"
       onContextMenu={(e) => e.preventDefault()}
       onDragStart={(e) => e.preventDefault()}
       style={{ WebkitUserSelect: "none", WebkitTouchCallout: "none" }}
